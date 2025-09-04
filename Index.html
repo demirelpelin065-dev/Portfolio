@@ -4,61 +4,98 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="color-scheme" content="dark light" />
-  <meta name="description" content="A modern, cool, responsive single-file website for GitHub Pages." />
-  <title>Modern One‑File Site</title>
+  <meta name="description" content="A modern, cool, responsive website for GitHub Pages." />
+  <title>Modern One-File Site</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23a78bfa'/%3E%3Cstop offset='1' stop-color='%23f472b6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Cpath d='M22 62c0-11 9-20 20-20s20 9 20 20v9H22v-9zm31-24a17 17 0 1 0-31 0' fill='%23fff' opacity='.9'/%3E%3C/svg%3E" />
-  <style>
-    :root {
-      --bg: #0b0b12;
-      --panel: rgba(255,255,255,.06);
-      --text: #e8e8ee;
-      --muted: #a3a3b2;
-      --primary: #8b5cf6; /* violet-500 */
-      --secondary: #f472b6; /* pink-400 */
-      --accent: #22d3ee; /* cyan-400 */
-      --ring: rgba(139,92,246,.45);
-      --radius: 18px;
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --glass-blur: saturate(140%) blur(8px);
-    }
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <nav aria-label="Main">
+    <div class="container nav-inner">
+      <a class="brand" href="#top" id="top">One-File</a>
+      <div class="menu" id="menu">
+        <a href="#features">Features</a>
+        <a href="#projects">Projects</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="actions">
+        <button class="btn" id="themeToggle" aria-label="Toggle theme" title="Toggle theme">🌗</button>
+        <button class="hamburger btn" id="hamburger" aria-expanded="false" aria-controls="menu">☰</button>
+      </div>
+    </div>
+  </nav>
 
-    @media (prefers-color-scheme: light) {
-      :root { --bg: #f8fafc; --panel: rgba(255,255,255,.75); --text: #0f172a; --muted: #475569; --shadow: 0 10px 30px rgba(2,6,23,.08); }
-      body::before { opacity: .5; }
-    }
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <span class="eyebrow">🚀 Modern • Cool • Responsive</span>
+        <h1>Build fast. Ship pretty. All in one file.</h1>
+        <p class="lead">Drop these files into your GitHub repo and enable GitHub Pages. No build step needed!</p>
+      </div>
+      <div class="hero-visual">
+        <div class="orb">
+          <div class="grid"></div>
+        </div>
+      </div>
+    </div>
+  </header>
 
-    * { box-sizing: border-box; }
-    html { scroll-behavior: smooth; }
-    body {
-      margin: 0;
-      font: 16px/1.6 system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Cantarell, Noto Sans, "Helvetica Neue", Arial, "Apple Color Emoji", "Segoe UI Emoji";
-      color: var(--text);
-      background: radial-gradient(1200px 800px at 20% 10%, rgba(139,92,246,.15), transparent 60%),
-                  radial-gradient(1000px 800px at 80% 30%, rgba(34,211,238,.12), transparent 60%),
-                  radial-gradient(1000px 800px at 20% 90%, rgba(244,114,182,.12), transparent 60%),
-                  var(--bg);
-      min-height: 100dvh;
-      position: relative;
-    }
+  <main>
+    <section id="features">
+      <div class="container">
+        <h2 class="section-title">Features</h2>
+        <div class="grid cols-3">
+          <article class="card"><h3>Responsive Layout</h3><p>Adaptive grid + fluid type for all screens.</p></article>
+          <article class="card"><h3>Theme Toggle</h3><p>Auto respects system theme with manual override.</p></article>
+          <article class="card"><h3>Sticky Nav</h3><p>Glass nav with mobile menu + smooth scroll.</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    /* animated gradient grid */
-    body::before {
-      content: "";
-      position: fixed; inset: 0; pointer-events: none; z-index: -1;
-      background: linear-gradient(120deg, rgba(139,92,246,.25), rgba(244,114,182,.25), rgba(34,211,238,.25));
-      mask: radial-gradient(circle at 50% 50%, rgba(0,0,0,.8) 0 40%, rgba(0,0,0,0.55) 60%, transparent 75%),
-            linear-gradient(transparent 47px, rgba(0,0,0,.2) 48px) repeat 0 0 / 100% 48px;
-      filter: blur(40px) saturate(120%);
-      animation: float 22s ease-in-out infinite alternate;
-      opacity: .35;
-    }
-    @keyframes float { to { transform: translate3d(0,-30px,0) scale(1.02); filter: blur(50px) saturate(140%);} }
+  <footer>
+    <div class="container footer-grid">
+      <p>© <span id="year"></span> Your Name.</p>
+    </div>
+  </footer>
 
-    .container { width: min(1120px, 92%); margin-inline: auto; }
+  <a href="#top" class="btn to-top" id="toTop" aria-label="Back to top">↑</a>
 
-    /* NAV */
-    nav {
-      position: sticky; top: 0; z-index: 50;
-      backdrop-filter: var(--glass-blur);
-      background: color-mix(in oklab, var(--panel) 100%, transparent);
-      border-bottom: 1px solid
+  <script>
+    // Mobile menu toggle
+    const hamb = document.getElementById('hamburger');
+    const menu = document.getElementById('menu');
+    hamb.addEventListener('click', () => {
+      const open = menu.classList.toggle('open');
+      hamb.setAttribute('aria-expanded', String(open));
+    });
+
+    // Theme toggle
+    const themeToggle = document.getElementById('themeToggle');
+    const STORAGE_KEY = 'onefile-theme';
+    (function applyStoredTheme(){
+      const saved = localStorage.getItem(STORAGE_KEY);
+      if (!saved) return;
+      document.documentElement.style.colorScheme = saved;
+      document.documentElement.dataset.theme = saved;
+    })();
+    themeToggle.addEventListener('click', () => {
+      const current = document.documentElement.dataset.theme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      const next = current === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      document.documentElement.style.colorScheme = next;
+      localStorage.setItem(STORAGE_KEY, next);
+    });
+
+    // Back to top
+    const toTop = document.getElementById('toTop');
+    document.addEventListener('scroll', () => {
+      if (scrollY > 400) toTop.classList.add('show'); else toTop.classList.remove('show');
+    }, { passive: true });
+
+    // Current year
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
