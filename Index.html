@@ -1,18 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="color-scheme" content="dark light" />
-  <meta name="description" content="Modern, cool, responsive website with example sections." />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Modern Demo Site</title>
+
+  <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop stop-color='%23a78bfa'/%3E%3Cstop offset='1' stop-color='%23f472b6'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23g)'/%3E%3Cpath d='M22 62c0-11 9-20 20-20s20 9 20 20v9H22v-9zm31-24a17 17 0 1 0-31 0' fill='%23fff' opacity='.9'/%3E%3C/svg%3E" />
 </head>
 <body>
 
   <!-- NAV -->
-  <nav aria-label="Main">
+  <nav>
     <div class="container nav-inner">
       <a class="brand" href="#top" id="top">DemoSite</a>
       <div class="menu" id="menu">
@@ -22,8 +21,8 @@
         <a href="#contact">Contact</a>
       </div>
       <div class="actions">
-        <button class="btn" id="themeToggle" aria-label="Toggle theme">🌗</button>
-        <button class="hamburger btn" id="hamburger" aria-expanded="false" aria-controls="menu">☰</button>
+        <button class="btn" id="themeToggle">🌗</button>
+        <button class="hamburger btn" id="hamburger" aria-expanded="false">☰</button>
       </div>
     </div>
   </nav>
@@ -32,9 +31,8 @@
   <header class="hero">
     <div class="container hero-grid">
       <div>
-        <span class="eyebrow">🚀 Modern • Cool • Responsive</span>
-        <h1>Welcome to the Demo Site</h1>
-        <p class="lead">This site is ready with examples sections, images, and animations. Drop it into GitHub Pages!</p>
+        <h1>Welcome to Demo Site</h1>
+        <p>Drop this on GitHub Pages and it works immediately!</p>
         <a href="#features" class="btn">Get Started</a>
       </div>
       <div class="hero-visual">
@@ -46,88 +44,33 @@
   <!-- FEATURES -->
   <section id="features">
     <div class="container">
-      <h2 class="section-title">Features</h2>
+      <h2>Features</h2>
       <div class="grid cols-3">
         <article class="card">
-          <img src="https://source.unsplash.com/300x200/?code,web" alt="Feature 1">
           <h3>Responsive Layout</h3>
-          <p>Looks great on desktop, tablet, and mobile.</p>
+          <p>Works on all devices.</p>
         </article>
         <article class="card">
-          <img src="https://source.unsplash.com/300x200/?design,ui" alt="Feature 2">
           <h3>Theme Toggle</h3>
-          <p>Supports light and dark mode with one click.</p>
+          <p>Switch between dark and light mode.</p>
         </article>
         <article class="card">
-          <img src="https://source.unsplash.com/300x200/?team,work" alt="Feature 3">
           <h3>Interactive Sections</h3>
-          <p>Cards, grids, and hover effects included.</p>
+          <p>Cards, grids, hover effects included.</p>
         </article>
       </div>
-    </div>
-  </section>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <div class="container">
-      <h2 class="section-title">Projects</h2>
-      <div class="grid cols-3">
-        <article class="card">
-          <img src="https://source.unsplash.com/300x200/?project,app" alt="Project 1">
-          <h3>Project One</h3>
-          <p>Example project description goes here.</p>
-        </article>
-        <article class="card">
-          <img src="https://source.unsplash.com/300x200/?project,website" alt="Project 2">
-          <h3>Project Two</h3>
-          <p>Example project description goes here.</p>
-        </article>
-        <article class="card">
-          <img src="https://source.unsplash.com/300x200/?project,design" alt="Project 3">
-          <h3>Project Three</h3>
-          <p>Example project description goes here.</p>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section id="gallery">
-    <div class="container">
-      <h2 class="section-title">Gallery</h2>
-      <div class="grid cols-3">
-        <img src="https://source.unsplash.com/300x200/?nature" alt="Gallery 1" class="card">
-        <img src="https://source.unsplash.com/300x200/?city" alt="Gallery 2" class="card">
-        <img src="https://source.unsplash.com/300x200/?technology" alt="Gallery 3" class="card">
-      </div>
-    </div>
-  </section>
-
-  <!-- CONTACT -->
-  <section id="contact">
-    <div class="container">
-      <h2 class="section-title">Contact</h2>
-      <form class="card">
-        <label>Name</label>
-        <input type="text" placeholder="Your Name">
-        <label>Email</label>
-        <input type="email" placeholder="Your Email">
-        <label>Message</label>
-        <textarea placeholder="Your Message"></textarea>
-        <button class="btn" type="submit">Send</button>
-      </form>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
     <div class="container footer-grid">
-      <p>© <span id="year"></span> DemoSite.</p>
+      <p>© <span id="year"></span> DemoSite</p>
     </div>
   </footer>
 
   <!-- Back to top -->
-  <a href="#top" class="btn to-top" id="toTop" aria-label="Back to top">↑</a>
+  <a href="#top" class="btn to-top" id="toTop">↑</a>
 
   <!-- JS -->
   <script>
@@ -156,7 +99,7 @@
       localStorage.setItem(STORAGE_KEY, next);
     });
 
-    // Back to top visibility
+    // Back to top
     const toTop = document.getElementById('toTop');
     document.addEventListener('scroll', () => {
       if (scrollY > 400) toTop.classList.add('show'); else toTop.classList.remove('show');
@@ -165,5 +108,6 @@
     // Current year
     document.getElementById('year').textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
